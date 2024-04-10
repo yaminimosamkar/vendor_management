@@ -59,6 +59,7 @@ def get_vendor_information(request, vendor_id):
 def delete_vendor_details(request, vendor_id):
     try:
         vendor = EmployeeInformation.objects.get(id = vendor_id)
+        print ('vendor******* delete_vendor_details' , vendor)
     except EmployeeInformation.DoesNotExist:
         raise Http404('Vendor Doe not Exists')
 
@@ -94,6 +95,7 @@ def get_create_purchase_order(request):
 def update_get_purchase_order(request, po_id):
     try:
         purchase_order = PurchaseOrder.objects.get(id=po_id)
+        print ('purchase_order-------update_get_purchase_order' , purchase_order)
     except PurchaseOrder.DoesNotExist:
         raise Http404("Purchase Order does not exist")
 
@@ -129,3 +131,10 @@ def delete_purchase_order(request, po_id):
         return JsonResponse({'message' : 'Purchase Order Deleted Successfully'} , status = 204)
     else:
         return JsonResponse({'error': 'Method not allowed'}, status=405)
+    
+# Review Performance Metrics:
+
+
+
+
+    
